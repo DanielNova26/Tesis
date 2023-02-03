@@ -1,0 +1,1902 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.7">
+  <world name="default">
+    <light name="sun" type="directional">
+      <cast_shadows>1</cast_shadows>
+      <pose frame="">0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name="ground_plane">
+      <static>1</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="arbol">
+        <pose>0 0 0 0 0 0 </pose>
+         <collision name="arbol1C">
+          <pose>-2.5 0 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbolV">
+          <pose>-2.5 0 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="arbol2">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="arbol2C">
+          <pose>-2.5 -0.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol2V">
+          <pose>-2.5 -0.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+            <link name="arbol3">
+        <pose>0 0 0 0 0 0 </pose>
+         <collision name="arbol3C">
+          <pose>-2.5 -1 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol3V">
+          <pose>-2.5 -1 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="arbol4">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="arbol5C">
+          <pose>-2.5 -1.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol4V">
+          <pose>-2.5 -1.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+            <link name="arbol5">
+        <pose>0 0 0 0 0 0 </pose>
+         <collision name="arbol5C">
+          <pose>-2.5 -2 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol5V">
+          <pose>-2.5 -2 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="arbol6">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="arbol6C">
+          <pose>-2.5 -2.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol6V">
+          <pose>-2.5 -2.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+            <link name="arbol7">
+        <pose>0 0 0 0 0 0 </pose>
+         <collision name="arbol7C">
+          <pose>-2.5 -3 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol7V">
+          <pose>-2.5 -3 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="arbol8">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="arbol8C">
+          <pose>-2.5 -3.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="arbol8V">
+          <pose>-2.5 -3.5 0 0 0 -1.57</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/Plant.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.34811 -1.91843 0 0 -0 0</pose>
+    </model>
+    <state world_name="default">
+      <sim_time>32 959000000</sim_time>
+      <real_time>34 911900360</real_time>
+      <wall_time>1491671314 990232190</wall_time>
+      <iterations>32959</iterations>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+    </state>
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>5 -5 2 0 0.275643 2.35619</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name="miRobot">
+      <pose frame="">0 0 0 0 0 0 </pose>
+      <link name="chasis">
+        <pose>0 0 0 0 0 0 </pose>
+        <inertial>
+          <pose name="chasisI">0 0 0.1539 0 0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>0.5</mass>
+        </inertial>
+        <collision name="chasisC">
+          <pose>0 0 0.1539 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/base1.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="chasisV">
+          <pose>0 0 0.1539 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/base1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="base">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="baseC">
+          <pose>0 0 0.6539 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/base2.stl</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="baseV">
+          <pose>0 0 0.6539 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/base2.dae</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="brazo1J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="brazo1C">
+          <pose>0 0 0.7539 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/brazo1.stl</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="brazo1V">
+          <pose>0 0 0.7539 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/brazo1.dae</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="brazo2J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="brazo2C">
+          <pose>0 -0.3411 1.0784 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/brazo2.stl</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="brazo2V">
+          <pose>0 -0.3411 1.0784 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/brazo2.dae</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="brazo3J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="brazo3C">
+          <pose>-0.075 -1.1012 1.085 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/unionc.stl</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="brazo3V">
+          <pose>-0.075 -1.1012 1.085 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/unionc.dae</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="basecJ">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="basecC">
+          <pose>0.1 -1.4759 1.135 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/basec.stl</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="basecV">
+          <pose>0.1 -1.4759 1.135 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/basec.dae</uri>
+              <scale>0.1 0.1 0.1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <sensor name='basecv' type='ray'>
+          <pose frame=''>0.1 -1.5512 1.1858 0 0 0</pose>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>640</samples>
+                <resolution>1</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>-3.14</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>5</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.04</min_angle>
+                <max_angle>1.04</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.05</min>
+              <max>1.6</max>
+              <resolution>0.36</resolution>
+            </range>
+          </ray>
+          <plugin name="laser" filename="libmi_laser.so">
+          	<topic>laser</topic>
+          </plugin>
+          <always_on>0</always_on>
+          <update_rate>10</update_rate>
+          <visualize>0</visualize>
+        </sensor>
+        <sensor type="camera" name="te_veo">
+          <pose frame=''>0.1 -1.5512 1.1858 0 0 -1.57</pose>
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>0.5</update_rate>
+          <visualize>false</visualize>
+          <plugin name="ojo" filename="libte_veo.so">
+          	<topic>camara</topic>
+          </plugin>
+        </sensor>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="pierna1J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="pierna1C">
+          <pose>0.35 -0.2750 0.5189 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna1.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="pierna1V">
+          <pose>0.35 -0.2750 0.5189 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="pierna2J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="pierna2C">
+          <pose>0.43 0.1871 0.4084 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="pierna2V">
+          <pose>0.43 0.1871 0.4084 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna2.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="pierna3J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="pierna3C">
+          <pose>-0.35 -0.2750 0.5174 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna3.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="pierna3V">
+          <pose>-0.35 -0.2750 0.5189 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna3.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="pierna4J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="pierna4C">
+          <pose>-0.43 0.1874 0.4084 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna4.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="pierna4V">
+          <pose>-0.43 0.1874 0.4084 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/pierna4.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="rueda1J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="rueda1C">
+          <pose>0.5818 -0.7660 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda1.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="rueda1V">
+          <pose>0.5818 -0.7660 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="eslabon1J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="eslabon1C">
+          <pose>0.7318 -0.7660 0.1420 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon1.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="eslabon1V">
+          <pose>0.7318 -0.7660 0.1420 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="rueda2J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="rueda2C">
+          <pose>0.5250 -0.1420 0.0017 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="rueda2V">
+          <pose>0.5250 -0.1420 0.0017 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda2.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="eslabon2J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="eslabon2C">
+          <pose>0.6750 -0.1420 0.1437 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="eslabon2V">
+          <pose>0.6750 -0.1420 0.1437 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon2.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="rueda3J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="rueda3C">
+          <pose>0.5250 0.5911 0.0014 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda3.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="rueda3V">
+          <pose>0.5250 0.5911 0.0014 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda3.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="eslabon3J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="eslabon3C">
+          <pose>0.6750 0.5911 0.1434 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon3.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="eslabon3V">
+          <pose>0.6750 0.5911 0.1434 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon3.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="rueda4J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="rueda4C">
+          <pose>-0.7318 -0.7660 0.0015 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda4.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="rueda4V">
+          <pose>-0.7318 -0.7660 0.0015 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda4.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="eslabon4J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="eslabon4C">
+          <pose>-0.4868 -0.7675 0.1405 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon4.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="eslabon4V">
+          <pose>-0.4868 -0.7675 0.1405 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon4.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="rueda5J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="rueda5C">
+          <pose>-0.6750 -0.1420 0.0017 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda5.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="rueda5V">
+          <pose>-0.6750 -0.1420 0.0017 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda5.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="eslabon5J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="eslabon5C">
+          <pose>-0.43 -0.1420 0.1437 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon5.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="eslabon5V">
+          <pose>-0.43 -0.1420 0.1437 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon5.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="rueda6J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="rueda6C">
+          <pose>-0.6750 0.5911 0.0014 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda6.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="rueda6V">
+          <pose>-0.6750 0.5911 0.0014 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/rueda6.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <link name="eslabon6J">
+        <pose>0 0 0 0 0 0 </pose>
+        <collision name="eslabon6C">
+          <pose>-0.43 0.5911 0.1437 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon6.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1e+11</kd>
+                <max_vel>-1</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="eslabon6V">
+          <pose>-0.43 0.5911 0.1434 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/daniel/tesis/src/robotTesis/worlds/robot/eslabon6.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+              <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name="eslabon1" type="revolute">
+        <pose frame="">-0 0 0.6539 0 0 0</pose>
+        <parent>chasis</parent>
+        <child>base</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon2" type="revolute"> <!--Brazo 1-->
+        <pose frame="">0 0 0.7039 0 0 0</pose>
+        <parent>base</parent>
+        <child>brazo1J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-5.89921</lower>
+            <upper>5.89921</upper>
+            <effort>9.5</effort>
+          </limit>
+          <xyz>0 0 -1</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon3" type="revolute"><!--Brazo 2-->
+        <pose frame="">0 -0.3411 1.1713 0 0 0</pose>
+        <parent>brazo1J</parent>
+        <child>brazo2J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>9.5</effort>
+            <lower>-9.5</lower>
+            <upper>2.70526</upper>
+          </limit>
+          <xyz>-1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon4" type="revolute"><!--Base Camara 1-->
+        <pose frame="">-0.075 -1.1012 1.135 0 0 0</pose>
+        <parent>brazo2J</parent>
+        <child>brazo3J</child>
+        <axis>
+            <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
+            <effort>9.5</effort>
+            <velocity>1</velocity>
+          </limit>
+          <xyz>-1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon5" type="revolute"><!--Base Camara 2-->
+        <pose frame="">0.1 -1.4759 1.185 0 0 0</pose>
+        <parent>brazo3J</parent>
+        <child>basecJ</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>1</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
+            <effort>9.5</effort>
+            <velocity>1</velocity>
+          </limit>
+          <xyz>0 1 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon6" type="revolute">
+        <pose frame="">0.35 -0.2750 0.5289 0 0 0</pose>
+        <parent>chasis</parent>
+        <child>pierna1J</child>
+          <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon7" type="revolute">
+        <pose frame="">0.35 0.1874 0.4198 0 0 0</pose>
+        <parent>chasis</parent>
+        <child>pierna1J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon8" type="revolute"><!--Pierna 1-->
+        <pose frame="">0.43 0.1871 0.4198 0 0 0</pose>
+        <parent>pierna1J</parent>
+        <child>pierna2J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>1</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
+            <effort>9.5</effort>
+            <velocity>0.1</velocity>
+          </limit>
+          <xyz>1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon9" type="revolute">
+        <pose frame="">-0.35 0.1875 0.4084 0 0 0</pose>
+        <parent>chasis</parent>
+        <child>pierna3J</child>
+            <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <xyz>0 0 1</xyz>
+      <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon10" type="revolute">
+        <pose frame="">-0.3750 -0.2750 0.5274 0 0 0</pose>
+        <parent>chasis</parent>
+        <child>pierna3J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon11" type="revolute"><!--Pierna 2-->
+        <pose frame="">-0.43 0.1874 0.4084 0 0 0</pose>
+        <parent>pierna3J</parent>
+        <child>pierna4J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>1</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
+            <effort>9.5</effort>
+            <velocity>0.1</velocity>
+          </limit>
+          <xyz>-1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon12" type="revolute">
+        <pose frame="">0.5818 -0.7671 0.1520 0 0 0</pose>
+        <parent>pierna1J</parent>
+        <child>eslabon1J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon13" type="revolute"><!--Rueda 1-->
+        <pose frame="">0.6750 -0.7671 0.1520 0 0 0</pose>
+        <parent>eslabon1J</parent>
+        <child>rueda1J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon14" type="revolute">
+        <pose frame="">0.5250 -0.1420 0.1537 0 0 0</pose>
+        <parent>pierna2J</parent>
+        <child>eslabon2J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon15" type="revolute"><!--Rueda 2-->
+        <pose frame="">0.6750 -0.1420 0.1537 0 0 0</pose>
+        <parent>eslabon2J</parent>
+        <child>rueda2J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon16" type="revolute">
+        <pose frame="">0.49 0.5932 0.1554 0 0 0</pose>
+        <parent>pierna2J</parent>
+        <child>eslabon3J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon17" type="revolute"><!--Rueda 3-->
+        <pose frame="">0.6568 0.5911 0.1534 0 0 0</pose>
+        <parent>eslabon3J</parent>
+        <child>rueda3J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon18" type="revolute">
+        <pose frame="">-0.5818 -0.7660 0.1505 0 0 0</pose>
+        <parent>pierna3J</parent>
+        <child>eslabon4J</child>
+         <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon19" type="revolute"><!--Rueda 4-->
+        <pose frame="">-0.7318 -0.7660 0.1505 0 0 0</pose>
+        <parent>pierna3J</parent>
+        <child>rueda4J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon20" type="revolute">
+        <pose frame="">-0.43 -0.1420 0.1537 0 0 0</pose>
+        <parent>pierna4J</parent>
+        <child>eslabon5J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon21" type="revolute"><!--Rueda 5-->
+        <pose frame="">-0.6750 -0.1420 0.1537 0 0 0</pose>
+        <parent>eslabon5J</parent>
+        <child>rueda5J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name="eslabon22" type="revolute">
+        <pose frame="">-0.43 0.5911 0.1434 0 0 0</pose>
+        <parent>pierna4J</parent>
+        <child>eslabon6J</child>
+        <axis>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <static>0</static>
+        </axis>
+      </joint>
+      <joint name="eslabon23" type="revolute"><!--Rueda 6-->
+        <pose frame="">-0.6750 0.5911 0.1434 0 0 0</pose>
+        <parent>eslabon6J</parent>
+        <child>rueda6J</child>
+        <axis>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <limit>
+            <effort>1</effort>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <xyz>-1 0 0</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <plugin name="actuador" filename="libmiRobot.so">
+    </plugin>
+    </model>
+  </world>
+</sdf>

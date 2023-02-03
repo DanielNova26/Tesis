@@ -1,0 +1,8 @@
+prefix=/home/daniel/tesis/devel
+
+Name: miRobot
+Description: Description of miRobot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp gazebo_ros

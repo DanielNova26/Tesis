@@ -1,0 +1,2 @@
+robotTesis
+-DCATKIN_DEVEL_PREFIX=/home/daniel/tesis/devel -DCMAKE_INSTALL_PREFIX=/home/daniel/tesis/install -G Unix Makefiles
